@@ -1,4 +1,4 @@
-module github.com/Taiwrash/self-server-uploader
+module github.com/Taiwrash/selfserveruploader
 
 go 1.20
 
