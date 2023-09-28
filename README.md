@@ -1,18 +1,20 @@
-Certainly! Here's a README for your Go package "selfserveruploader," which facilitates file uploads to a server using the Fiber framework:
-
-# SelfServerUploader - Easy File Uploads with Fiber
+## SelfServerUploader - Easy File Uploads with Fiber
 
 SelfServerUploader is a Go package designed to simplify the process of handling file uploads in your web applications. It's built on top of the Fiber web framework, making it easy to receive, save, and provide access to uploaded files.
 
 ## Table of Contents
 - [SelfServerUploader - Easy File Uploads with Fiber](#selfserveruploader---easy-file-uploads-with-fiber)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Example](#example)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Example](#example)
+- [Just Before You Run](#just-before-you-run)
+- [In your HTML file](#in-your-html-file)
+- [To use as API](#to-use-as-api)
+- [Good to go!](#good-to-go)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Introduction
 
@@ -76,7 +78,31 @@ func main() {
     app.Listen(":4000")
 }
 ```
+## Just Before You Run
+- Create a folder named `uploads` in the same directory as your `main.go` file.
+- This is where the uploaded files will be saved.
 
+## In your HTML file
+- Create a form with the `enctype` attribute set to `multipart/form-data`.
+- Create an input field with the `type` attribute set to `file`.
+- Set the `name` attribute of the input field to `file`.
+- Set the `action` attribute of the form to the route you specified in your Fiber application.
+- Set the `method` attribute of the form to `POST`.
+- Set the `enctype` attribute of the form to `multipart/form-data`.
+
+```html
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
+```
+
+## To use as API
+- Select form data as `form-data` in Postman.
+- Set the `key` to `file` with title `image`.
+- Set the `value` to the file you want to upload.
+
+## Good to go!
 Run the above code, and your Fiber application will be able to receive and save uploaded files.
 
 ## Contributing

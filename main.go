@@ -22,7 +22,7 @@ func Upload(c *fiber.Ctx) error {
 
 	ext := strings.Split(file.Filename, ".")[1]
 	image := fmt.Sprintf("%s.%s", filename, ext)
-	err = c.SaveFile(file, fmt.Sprintf("./images/%s", image))
+	err = c.SaveFile(file, fmt.Sprintf("./uploads/%s", image))
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"message": "unable to save!",
